@@ -1,0 +1,6 @@
+id_contacto,nombre,primer_apellido,segundo_apellido,email,telefono
+1,John,Doe,Smith,johndoe@nose.com,5555555555
+2,Jane,Smith,Johnson,janesmith@nose.com,5555555556
+3,Bob,Johnson,Doe,bobjohnson@nose.com,5555555557
+4,Alice,Smith,Doe,alicesmith@nose.com,5555555558
+5,Eva,Johnson,Smith,evajohnson@nose.com,5555555559
