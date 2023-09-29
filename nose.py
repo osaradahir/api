@@ -1,25 +1,3 @@
-from fastapi import FastAPI
-import csv
-import json
-
-
-app = FastAPI()
-
-@app.get("/v1/contactos", status_code=298,
-    summary="Endponit para visualizar datos",
-    description="Endpoint raiz para vizualizar datos de la API",)
-
-def get_contactos():
-    response = []
-
-    with open("contactos.csv", "r") as file:
-        reader = csv.DictReader(file, delimiter=",")
-
-        for fila in reader:
-            response.append(fila)
-
-    return response
-
 @app.post("/v1/contactos")
 def post_contactos(
     id_contacto: str,
