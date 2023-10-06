@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 import csv
-import json
-
+from pydantic import BaseModel
 
 app = FastAPI()
 
-@app.get("/v1/contactos", status_code=298,
-    summary="Endponit para visualizar datos",
-    description="Endpoint raiz para vizualizar datos de la API",)
+@app.get("/", status_code=200,
+    summary="Endpoint raiz",
+    description="Endpoint raiz de la API")
 
 def get_contactos():
     response = []
@@ -20,30 +19,48 @@ def get_contactos():
 
     return response
 
-@app.post("/v1/contactos")
-def post_contactos(
-    id_contacto: str,
-    nombre: str,
-    primer_apellido: str,
-    segundo_apellido: str,
-    email: str,
-    telefono: str
-):
-    # Escribir los datos en el archivo "contactos.csv"
-    with open("contactos.csv", "a", newline="") as file:
+@app.get("/v1/contactos", status_code=298,
+    summary="Endpoint para visualizar datos",
+    description="Endpoint para visualizar datos de la API")
+
+def get_contactos1():
+    response = []
+
+    with open("contactos.csv", "r") as file1, open("contactos_n.csv", "r") as file2:
+        reader1 = csv.DictReader(file1, delimiter=",")
+        reader2 = csv.DictReader(file2, delimiter=",")
+
+        for fila in reader1:
+            response.append(fila)
+
+        for fila in reader2:
+            response.append(fila)
+
+    return response
+
+class Contactos(BaseModel):
+    id_contacto: int
+    nombre: str
+    primer_apellido: str
+    segundo_apellido: str
+    email: str
+    telefono: int
+
+@app.post("/v2/contactos", status_code=201,
+    summary="Endpoint para enviar datos",
+    description="Endpoint para enviar datos a la API")
+def post_contactos(contacto : Contactos):
+
+    with open("contactos_n.csv", "a", newline="") as file:
         fieldnames = ["id_contacto", "nombre", "primer_apellido", "segundo_apellido", "email", "telefono"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
-        if file.tell() == 0:
-            writer.writeheader()
 
-        # Escribir los datos del nuevo contacto
-        writer.writerow({
-            "id_contacto": id_contacto,
-            "nombre": nombre,
-            "primer_apellido": primer_apellido,
-            "segundo_apellido": segundo_apellido,
-            "email": email,
-            "telefono": telefono
-        })
+        id_contacto= input("Ingrese el Id del contacto: ")
+        nombre = input("Ingresa el Nombre: ")
+        primer_apellido = input("Ingresa el Primer Apellido: ")
+        segundo_apellido = input("Ingresa el Segundo Apellido: ")
+        email = input("Ingresa el Email: ")
+        telefono = input("Ingresa el Teléfono: ")
+
 
     return {"mensaje": "Datos de contacto agregados con éxito"}
