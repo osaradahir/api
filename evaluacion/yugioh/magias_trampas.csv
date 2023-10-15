@@ -1,0 +1,6 @@
+id_carta,nombre,tipo,efecto,tipo_carta
+1,Agujero Oscuro,Trampa,"Destruye todos los monstruos en el campo.",Magia
+2,Polimerización,Magia,"Fusiona 2 monstruos para invocar un monstruo de fusión.",Magia
+3,Refuerzos,Magia,"Aumenta el ATK de un monstruo en el campo en 500 puntos.",Magia
+4,Cilindro Mágico,Trampa,"Cuando un monstruo ataca, inflige daño igual a su ATK a su controlador.",Trampa
+5,Cambio de Cartas,Magia,"Intercambia una carta en tu mano con una en la mano de tu oponente.",Magia

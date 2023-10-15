@@ -1,0 +1,6 @@
+id_carta,nombre,tipo,atributo,nivel,atk,defe,efecto,tipo_de_carta
+1,Dragón Blanco de Ojos Azules,Dragón,LUZ,8,3000,2500,"Cuando esta carta es Invocada de Modo Normal o Especial, puedes Sacrificar 2 monstruos para Invocar Especialmente 1 ""Dragón Blanco de Ojos Azules"" de tu mano o Deck.",Normal
+2,Magician of Black Chaos,Mago,OSCURIDAD,8,2800,2600,"No puede ser Invocado de Modo Normal/Set. Debe ser Invocado de Modo Especial (desde tu mano) desterrando 1 monstruo ""Magician"" de tu Deck.",Normal
+3,Héroe Elemental Neos,Guerrero,Luz,7,2500,2100,no tiene,Normal
+4,Caballero del Dragón Oscuro,Guerrero,OSCURIDAD,6,2400,2100,"Cuando esta carta es Invocada de Modo Normal, puedes Sacrificar 1 monstruo para seleccionar y destruir 1 carta boca arriba de tu adversario.",Normal
+10,Mago oscuro,Lanzador de conjuros,Oscuridad,7,2500,2100,no tiene,Normal
